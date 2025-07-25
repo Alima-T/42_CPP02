@@ -6,12 +6,12 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:26:47 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/25 17:55:48 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/25 18:16:12 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/Fixed.hpp"
 #include <iostream>
-#include "Fixed.hpp"
 
 int main(void) 
 {
