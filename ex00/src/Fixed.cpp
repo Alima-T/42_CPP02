@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:51:35 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/25 17:55:40 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:17:51 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other; // Use the copy assignment operator
+	// this->m_rawBits = other.getRawBits(); // Copy the internal raw value
 }
 
 // Copy assignment operator
