@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 00:42:35 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/25 18:19:35 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/29 22:32:45 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,32 @@ Fixed Fixed::operator*(const Fixed &rhs) const {
 
 Fixed Fixed::operator/(const Fixed &rhs) const {
     Fixed result;
+    // check for division by zero
+    if (rhs.m_rawBits == 0) {
+        throw std::runtime_error("Division by zero");
+    } // but catch it in the main
     result.m_rawBits = (static_cast<long>(m_rawBits) << m_fractionalBits) / rhs.m_rawBits;
     return result;
 }
 
 // Increment/Decrement
-Fixed &Fixed::operator++() {
+Fixed &Fixed::operator++() { // ++i
     ++m_rawBits;
     return *this;
 }
 
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++(int) { // i++
     Fixed temp(*this);
     ++(*this);
     return temp;
 }
+// Fixed Fixed::operator++(int) // post-increment i++;
+// {
+// 	Fixed duplicate(*this); // we made a copy of the current object
+// 	// this->number = number + (1 << fract); // increased the current value by 1
+// 	this->number = number + 1 ; // increased the current value by the smallest representable ϵ
+// 	return (duplicate); // return the copy before increament
+// }
 
 Fixed &Fixed::operator--() {
     --m_rawBits;

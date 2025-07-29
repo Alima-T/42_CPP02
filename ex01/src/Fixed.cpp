@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:14:16 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/25 17:55:03 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/29 22:09:26 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Fixed::Fixed(const float floatValue)
 	std::cout << "Float constructor called" << std::endl;
 	// Multiply float by 2^8 (256) and round to nearest integer
 	// Example: 42.42 * 256 = 10859.52 → rounded to 10860
+	// Example: 42.42 * 256 = 10859.4 → rounded to 10859
 	m_rawBits = roundf(floatValue * (1 << m_fractionalBits));
 }
 
@@ -69,6 +70,8 @@ float Fixed::toFloat(void) const
 	// Divide raw bits by 256 (2^8) to get float value
 	// Example: 2560 → 2560 / 256 = 10.0
 	return (static_cast<float>(m_rawBits) / (1 << m_fractionalBits));
+	// return (float)(number / (float) (1 << fract)); // the same as above c Style
+
 }
 
 // Convert fixed-point value to integer
