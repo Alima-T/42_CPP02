@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:09:58 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/23 01:26:27 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:08:35 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ private:
     static const int m_fractionalBits = 8;
 
 public:
-    Fixed();                        // Default constructor
-    Fixed(const int intValue);      // Int constructor
-    Fixed(const float floatValue);  // Float constructor
-    Fixed(const Fixed& src);        // Copy constructor
+    Fixed();                        	// Default constructor
+    Fixed(const int intValue);     
+    Fixed(const float floatValue); 
+    Fixed(const Fixed& src);        	// Copy constructor
     Fixed& operator=(const Fixed& rhs); // Copy Assignment Operator 
-	~Fixed();                       // Destructor
+	~Fixed();                     		
 
     float toFloat(void) const;
     int toInt(void) const;
@@ -34,7 +34,7 @@ public:
 /*
 The operator<< for std::ostream cannot be a member of my class because the left operand (std::ostream) is not my class.
 It must be a non-member function, but it should have access to my class’s public interface (toFloat() etc).
-the Norm expects that it should be declared in the header file outside the class definition.
+the subject expects that it should be declared in the header file outside the class definition.
 */
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
