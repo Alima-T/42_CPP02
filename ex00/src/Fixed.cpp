@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:51:35 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/29 21:17:51 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:15:04 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@ Fixed::Fixed(const Fixed& other)
 	// this->m_rawBits = other.getRawBits(); // Copy the internal raw value
 }
 
-// Copy assignment operator
-// Assigns the value from another Fixed object to the current object
+/* Copy assignment operator
+Assigns the value from another Fixed object to the current object
+this != &other  Prevent self-assignment
+this->m_rawBits = other.getRawBits() // Copy the internal raw value
+return *this; // Return reference to current object
+*/
 Fixed& Fixed::operator=(const Fixed& other) 
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) 
-	{ // Prevent self-assignment
-		this->m_rawBits = other.getRawBits(); // Copy the internal raw value
+	{ 
+		this->m_rawBits = other.getRawBits();
 	}
-	return *this; // Return reference to current object
+	return *this;
 }
 
 // Destructor
