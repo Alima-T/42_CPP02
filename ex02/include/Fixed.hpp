@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 00:42:39 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/23 01:22:27 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:07:37 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ public:
     float toFloat() const;
     int toInt() const;
 };
-
+//This is a free-standing function (not a member of the class).
+// It is declared outside the class and only uses Fixed, usually as a friend or through its public API.
+//we overload it to make it easy to print Fixed objects with std::cout or any output stream.
 std::ostream &operator<<(std::ostream &out, const Fixed &value);
 
 #endif
