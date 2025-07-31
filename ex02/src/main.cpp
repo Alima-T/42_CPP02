@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 00:41:24 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/31 15:34:35 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 19:02:54 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int main( void )
 	std::cout << "min(h, i) = " << Fixed::min(h, i) << std::endl;
 	std::cout << "max(h, i) = " << Fixed::max(h, i) << std::endl;
 
-	std::cout << "\n--- Division by Zero (optional test) ---\n";
-	Fixed zero;
+	// std::cout << "\n--- Division by Zero (optional test) ---\n";
+	// Fixed zero;
 	// // Uncomment below to test crash behavior (acceptable by subject)
 	// std::cout << "d / zero = " << (d / zero) << std::endl;
 	return 0;
