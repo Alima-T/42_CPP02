@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 00:42:35 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/31 13:00:50 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:33:14 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ Fixed::~Fixed() {}
 
 // Copy assignment
 /*
-   Объект — это дом 🏠
+	Объект — это дом 🏠
 ✔️ this — это указатель на весь дом (текущий объект left-hand side).
 ✔️ this->m_rawBits — это "моя кухня".
 ✔️ rhs.m_rawBits — "кухня другого дома" (куда копируем right-hand side).
 ✔️ this != &rhs — проверка на самоприсваивание.
 ✔️ this != &rhs нужен только когда ты работаешь с ресурсами (*ptr указателями, файлами, памятью) и прописываем delete().
-   Без проверки можно случайно потерять данные или даже получить мусор, если освободили память и пытаемся что-то из неё копировать.
+  Без проверки можно случайно потерять данные или даже получить мусор, если освободили память и пытаемся что-то из неё копировать.
 ✔️ Если поле — int, float, bool, и прочие примитивы — происходит перезапись без удаления, самоприсваивание не опасно, и проверку можно пропустить.
 */
 Fixed &Fixed::operator=(const Fixed &rhs)
@@ -44,10 +44,15 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 
 // Comparison operators
 bool Fixed::operator>(const Fixed &rhs) const { return m_rawBits > rhs.m_rawBits; }
+
 bool Fixed::operator<(const Fixed &rhs) const { return m_rawBits < rhs.m_rawBits; }
+
 bool Fixed::operator>=(const Fixed &rhs) const { return m_rawBits >= rhs.m_rawBits; }
+
 bool Fixed::operator<=(const Fixed &rhs) const { return m_rawBits <= rhs.m_rawBits; }
+
 bool Fixed::operator==(const Fixed &rhs) const { return m_rawBits == rhs.m_rawBits; }
+
 bool Fixed::operator!=(const Fixed &rhs) const { return m_rawBits != rhs.m_rawBits; }
 
 // Arithmetic operators

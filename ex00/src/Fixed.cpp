@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:51:35 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/31 13:15:04 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:27:35 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ const int Fixed::m_fractionalBits = 8;
 
 // Default constructor
 // Initializes the raw fixed-point value to 0
-Fixed::Fixed() : m_rawBits(0) 
+Fixed::Fixed() : m_rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
 // Copy constructor
-// Initializes a new object by copying the state of another Fixed object
-Fixed::Fixed(const Fixed& other) 
+// Initializes a new object by copying the state of another Fixed object using the copy assignment operator
+Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = other; // Use the copy assignment operator
+	*this = other;
 	// this->m_rawBits = other.getRawBits(); // Copy the internal raw value
 }
 
@@ -38,11 +38,11 @@ this != &other  Prevent self-assignment
 this->m_rawBits = other.getRawBits() // Copy the internal raw value
 return *this; // Return reference to current object
 */
-Fixed& Fixed::operator=(const Fixed& other) 
+Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &other) 
-	{ 
+	if (this != &other)
+	{
 		this->m_rawBits = other.getRawBits();
 	}
 	return *this;
@@ -50,20 +50,20 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 // Destructor
 // Called when a Fixed object goes out of scope or is deleted
-Fixed::~Fixed() 
+Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
 // Returns the internal raw value (m_rawBits) and logs a message
-int Fixed::getRawBits(void) const 
+int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return this->m_rawBits;
 }
 
 // Sets the internal raw value to the given raw integer
-void Fixed::setRawBits(int const raw) 
+void Fixed::setRawBits(int const raw)
 {
 	this->m_rawBits = raw;
 }

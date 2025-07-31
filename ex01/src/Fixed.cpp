@@ -6,7 +6,7 @@
 /*   By: aokhapki <aokhapki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:14:16 by aokhapki          #+#    #+#             */
-/*   Updated: 2025/07/31 13:12:56 by aokhapki         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:28:40 by aokhapki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ Fixed::Fixed(const float floatValue)
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	
 	*this = src;
 }
 
@@ -57,7 +56,7 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
-	{                              
+	{
 		m_rawBits = rhs.m_rawBits;
 	}
 	return (*this);
@@ -74,9 +73,8 @@ Fixed::~Fixed()
 // Example: 2560 → 2560 / 256 = 10.0
 float Fixed::toFloat(void) const
 {
-	
 	return (static_cast<float>(m_rawBits) / (1 << m_fractionalBits));
-	// return (float)(number / (float) (1 << fract)); // the same as above c Style
+	// return (float)(number / (float) (1 << fract)); // the same as above C - Style
 
 }
 
@@ -85,7 +83,6 @@ float Fixed::toFloat(void) const
 // Example: 2560 → 2560 >> 8 = 10
 int Fixed::toInt(void) const
 {
-	
 	return (m_rawBits >> m_fractionalBits);
 }
 
@@ -93,7 +90,6 @@ int Fixed::toInt(void) const
 // Output the float representation of the fixed-point value
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
-
 	out << fixed.toFloat();
 	return (out);
 }
